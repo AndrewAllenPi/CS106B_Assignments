@@ -132,18 +132,18 @@ void CountLetters(string filename){
             fs >> skipws >> ch;
 
             // Convert capitals to lower case.
-            if((65 <= ch) && (ch <= 90)) // using ansii table: A='65', B='66',... , Z='90'
+            if(('A' <= ch) && (ch <= 'Z'))
             {
-                ch+=32; // 'A'+32=65+32=97='a' etc.
+                ch+='a'-'A';
             }
-            if((97 <= ch) && (ch <= 122))
+            if(('a' <= ch) && (ch <= 'z'))
             {
-                ch-=97; // convert to vector index
+                ch-='a'; // convert to vector index
                 counts[int(ch)]++;
             }
         }
         fs.close();
-        char letter = 97; // a
+        char letter = 'a';
         for(int i = 0; i < 26; i++)
         {
             cout << letter << ": " << counts[i] << endl;
